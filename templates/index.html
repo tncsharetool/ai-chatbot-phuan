@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trợ lý Phú An - Mua cây trồng</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>🤖 Trợ lý Phú An</h1>
+    <p>Vui lòng nhập thông tin để được tư vấn:</p>
+    <textarea id="message" rows="4" placeholder="Nhập tin nhắn của bạn..."></textarea>
+    <button onclick="sendMessage()">Gửi</button>
+    <pre id="reply"></pre>
+
+    <script>
+        async function sendMessage() {
+            const message = document.getElementById("message").value;
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({message})
+            });
+            const data = await res.json();
+            document.getElementById("reply").innerText = data.reply;
+        }
+    </script>
+</body>
+</html>
