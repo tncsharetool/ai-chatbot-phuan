@@ -1,0 +1,3 @@
+.chat-container { max-width: 600px; margin: auto; padding: 20px; }
+textarea { width: 100%; height: 60px; }
+#chatBox { margin-top: 20px; white-space: pre-line; border: 1px solid #ccc; padding: 10px; }
